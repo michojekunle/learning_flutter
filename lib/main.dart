@@ -1,9 +1,39 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'ui/harmonia_splash.dart';
 
 void main() {
   runApp(MyApp());
+}
+
+
+
+class SplashScreenWrapper extends StatefulWidget {
+  const SplashScreenWrapper({super.key});
+
+  @override
+  State<SplashScreenWrapper> createState() => _SplashScreenWrapperState();
+}
+
+class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
+  @override
+  void initState() {
+    super.initState();
+    // Navigate to your main screen after animations
+    Future.delayed(const Duration(seconds: 4), () {
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => MyHomePage()),
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const HarmoniaSplashScreen();
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +49,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         ),
-        home: MyHomePage(),
+        home: const SplashScreenWrapper(),
       ),
     );
   }
