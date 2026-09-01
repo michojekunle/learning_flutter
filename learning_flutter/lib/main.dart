@@ -5,8 +5,22 @@ import 'ui/harmonia_splash.dart';
 
 void main() {
   runApp(MyApp());
+  test();
 }
 
+Stream<String> getName() {
+  return Stream.value('Foo');
+}
+
+Iterable<int> getOneTwoThree() sync* {
+  yield 1;
+}
+
+void test() async {
+  await for (final value in getName()) {
+    print(value);
+  }
+}
 
 
 class SplashScreenWrapper extends StatefulWidget {
