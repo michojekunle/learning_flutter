@@ -12,7 +12,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(body: Center(child: Tile("A", HitType.hit))),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Align(
+            alignment: Alignment.centerLeft,
+            child: Text("Bridge"),
+          ),
+        ),
+        body: Center(child: GamePage()),
+      ),
     );
   }
 }
@@ -44,5 +52,17 @@ class Tile extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class GamePage extends StatelessWidget {
+  GamePage({super.key});
+
+  final Game _game = Game();
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container();
   }
 }
