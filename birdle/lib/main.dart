@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(
           title: const Align(
             alignment: Alignment.centerLeft,
-            child: Text("Bridge"),
+            child: Text("Birdle"),
           ),
         ),
         body: Center(child: GamePage()),
